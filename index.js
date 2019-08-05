@@ -1,9 +1,9 @@
-console.log("Hello");
+//console.log("Hello");
 
 // reverse of number
 //1. input = [1,2,3], [1,2,3,4];
 //2. output = [1,2,3,4,5,6], [4,3,2,1];
-6-2
+//6-2
 function reverseNum(num){
     for(let i= 0; i<num.length; i++){
         num[i] = num[num.length -i]
@@ -46,36 +46,6 @@ function selectionSort(a){
 }
 
 
-//Insertion Sort
-
-// interview questions
-
-// Pascal triangle
-
-
-// longest palindrome.
-
-
-// given string of unbalanced paranthesis, balance it
-
-function balParanthesis(v){
-    let array = v.split(""), stack =[];
-    for(let i = 0; i< array.length; i++){
-        if(array[i]=== "(" ||
-        array[i]=== "{" ||
-        array[i]=== "["){
-            stack.push(array[i]);
-        }
-        else{
-            let last = stack.pop();
-            if(str[i] !== map[last]){
-                return false;
-            }
-        }
-    }
-    if(stack.length !== 0){ return false;}
-    return true;
-}
 
 // Two sum problem
 // Time complexity is o(n2)
@@ -298,7 +268,7 @@ function consecutiveTwoNumSumMax(a){
     return max_sum;
 }
 //console.log(consecutiveTwoNumSumMax([1,2,3,14,5]));
-console.log("consecutiveNNumSumMax")
+//console.log("consecutiveNNumSumMax")
 // important
 function consecutiveNNumSumMax(a,k){
     let cur_sum = 0, max_sum=0;
@@ -316,5 +286,150 @@ function consecutiveNNumSumMax(a,k){
     }    
     return max_sum;
 }
-console.log(consecutiveNNumSumMax([1,2,3,14,5], 3));
+//console.log(consecutiveNNumSumMax([1,2,3,14,5], 3));
 
+
+//Insertion Sort
+
+// interview questions
+
+// Pascal triangle
+
+
+// longest palindrome.
+
+console.log("balance Paranthesis")
+// given string of unbalanced paranthesis, balance it
+function balParanthesis(v){
+    let stack =[], map = {
+        '(' :')',
+        '{':'}',
+        '[':']'
+    };
+    ///for(let i = 0; i< array.length; i++){
+        for(let b of v){
+        //If character is an opening brace add it to a stack       
+        if(b === "(" ||
+        b === "{" ||
+        b === "["){
+            stack.push(b);
+        }
+        //  If that character is a closing brace, pop from the stack, which will also 
+        //reduce the length of the stack each time a closing bracket is encountered.
+        else{
+            let last = stack.pop();
+             //If the popped element from the stack, 
+             //which is the last opening brace doesn’t 
+             //match the corresponding closing brace in the 
+             //map, then return false
+            if(b !== map[last]){
+                return false;
+            }
+        }
+    }
+     // By the completion of the for loop after checking 
+     //all the brackets of the str, 
+     //at the end, if the stack is not empty then fail
+    if(stack.length !== 0){ return false;}
+    return true;
+}
+console.log(balParanthesis("(){}"));
+
+console.log("Missing Number in agiven interger of 1 to 100");
+function missingNum(a){
+ 
+}
+console.log(missingNum([]));
+
+console.log("Duplicate Number in a given interger array");
+function duplicateNum(a){
+ 
+}
+console.log(duplicateNum([]));
+
+console.log("Largest Number and Smallest Number in a given interger array");
+function largestSmallestNum(a){
+ let mid = a.length >> 1, st = a[0], 
+ cur_max= a[0], max_so_far= 0, cur_l = a[0],
+ l_so_far = 0;
+    for(let i = 1; i <a.length; i++){
+        if(a[i] > cur_max && a[i] - cur_max > max_so_far){
+            max_so_far = a[i] - cur_max; 
+        } else{
+            cur_max = a[i];
+        }
+        if(a[i] < cur_l &&   a[i] - cur_l < l_so_far){
+            l_so_far =  a[i] - cur_l
+        } else{
+            cur_l = a[i]
+        }
+    }
+    console.log(`largest number ${max_so_far} and smallest number ${l_so_far}`);
+}
+largestSmallestNum([70,65,3,21,58,93,12,82,15,34,73,2,12]);
+
+
+console.log("Given string is Anagram");
+function isAnagram(str1, str2){
+    let strObj1 = {}, strObj2 = {};
+    if(str1.length == str2.length){
+        for(let i in str1){
+
+        }
+    } else{
+        return false
+    }    
+}
+const checker = (l, obj) =>{
+    if(obj[l] === undefined){
+        return obj[l] = 1;
+    } else{
+        return obj[l] +=1
+    }
+}
+const objEql = (o1, o2) => {
+    for(let el in obj){
+        if(o1[el] !== obj2[el]){
+            return false
+        }        
+    }
+    return true;
+}
+console.log(isAnagram("nukes", "kuine"));
+
+console.log("Reverse of a Number")
+
+function reverse(){
+    
+}
+
+
+
+let a = ["2", "5", "7","8", "9", "10","11"]
+/*
+function Event(){     
+    var ev = {};    
+    var hOP = ev.hasOwnProperty;
+}
+
+EventSource.prototype.publish = function(e, v){
+    if(!hOP.call(ev, e)) return;
+    ev[e].forEach(function(itm){
+        itm(e !== undefined ? e : {});
+    })
+}
+EventSource.prototype.subscribe = function(e, c){
+    if(!hOP.call(ev, e)) ev[e] = [];
+    var index = ev[e].push(c) - 1;
+    return {
+        remove:function(){
+            delete ev[e][index]
+        }
+    }
+}
+EventSource.prototype.unsubscribe = function(e){
+    if(!hOP.call(ev, e)) return;
+    if(ev.hasOwnProperty(e)){
+        delete ev[e];
+    }
+}*/
